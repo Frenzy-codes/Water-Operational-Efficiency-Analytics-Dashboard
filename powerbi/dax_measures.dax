@@ -1,0 +1,140 @@
+// =============================================================================
+// DAX MEASURES - Water & Operational Efficiency Analytics
+// =============================================================================
+// You can create a new blank table called "_Measures" in Power BI 
+// (Home -> Enter Data -> Name it "_Measures" -> Load)
+// and create each measure below inside it.
+// =============================================================================
+
+// --- 1. CORE WATER MEASURES ---
+
+Total Water (L) = 
+SUM(fact_water_usage[water_consumption_liters])
+
+Total Water (ML) = 
+DIVIDE([Total Water (L)], 1000000, 0)
+
+Total Recycled Water (L) = 
+SUM(fact_water_usage[recycled_water_liters])
+
+Total Recycled Water (ML) = 
+DIVIDE([Total Recycled Water (L)], 1000000, 0)
+
+Net Water (L) = 
+[Total Water (L)] - [Total Recycled Water (L)]
+
+Recycling % = 
+DIVIDE([Total Recycled Water (L)], [Total Water (L)], 0) * 100
+
+Daily Avg Water (L) = 
+AVERAGE(fact_water_usage[water_consumption_liters])
+
+
+// --- 2. ENERGY & PRODUCTION MEASURES ---
+
+Total Energy (kWh) = 
+SUM(fact_energy[energy_kwh])
+
+Daily Avg Energy (kWh) = 
+AVERAGE(fact_energy[energy_kwh])
+
+Total Production = 
+SUM(fact_production[production_units])
+
+Downtime Days = 
+SUM(fact_production[is_downtime])
+
+
+// --- 3. COST MEASURES ---
+
+Total Cost (INR) = 
+SUM(fact_cost[total_cost_inr])
+
+Total Water Cost (INR) = 
+SUM(fact_cost[water_cost_inr])
+
+Total Energy Cost (INR) = 
+SUM(fact_cost[energy_cost_inr])
+
+Total Treatment Cost (INR) = 
+SUM(fact_cost[treatment_cost_inr])
+
+
+// --- 4. EFFICIENCY RATIOS ---
+
+Water per Unit = 
+DIVIDE([Total Water (L)], [Total Production], 0)
+
+Cost per Unit = 
+DIVIDE([Total Cost (INR)], [Total Production], 0)
+
+Energy per Unit (kWh) = 
+DIVIDE([Total Energy (kWh)], [Total Production], 0)
+
+Cost per KL = 
+DIVIDE([Total Cost (INR)], DIVIDE([Total Water (L)], 1000, 0), 0)
+
+
+// --- 5. WATER QUALITY & INCIDENTS ---
+
+Avg pH = 
+AVERAGE(fact_water_quality[ph])
+
+Avg Turbidity (NTU) = 
+AVERAGE(fact_water_quality[turbidity_ntu])
+
+Avg TDS (ppm) = 
+AVERAGE(fact_water_quality[tds_ppm])
+
+Quality Violations = 
+CALCULATE(
+    COUNTROWS(fact_water_quality),
+    fact_water_quality[quality_status] IN {"Warning", "Critical"}
+)
+
+Critical Incidents = 
+CALCULATE(
+    COUNTROWS(fact_water_quality),
+    fact_water_quality[quality_status] = "Critical"
+)
+
+Warning Incidents = 
+CALCULATE(
+    COUNTROWS(fact_water_quality),
+    fact_water_quality[quality_status] = "Warning"
+)
+
+
+// --- 6. TIME INTELLIGENCE (MoM) ---
+
+Water Previous Month = 
+CALCULATE(
+    [Total Water (L)],
+    DATEADD(dim_date[date_key], -1, MONTH)
+)
+
+MoM Water Change % = 
+VAR currentWater = [Total Water (L)]
+VAR prevWater = [Water Previous Month]
+RETURN
+    IF(
+        ISBLANK(prevWater),
+        BLANK(),
+        DIVIDE(currentWater - prevWater, prevWater, 0) * 100
+    )
+
+Cost Previous Month = 
+CALCULATE(
+    [Total Cost (INR)],
+    DATEADD(dim_date[date_key], -1, MONTH)
+)
+
+MoM Cost Change % = 
+VAR currentCost = [Total Cost (INR)]
+VAR prevCost = [Cost Previous Month]
+RETURN
+    IF(
+        ISBLANK(prevCost),
+        BLANK(),
+        DIVIDE(currentCost - prevCost, prevCost, 0) * 100
+    )
