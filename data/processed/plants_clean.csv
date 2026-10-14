@@ -1,0 +1,9 @@
+plant_id,plant_name,location,plant_type,capacity_liters
+P001,Pune Central,Pune,Treatment,100000
+P002,Mumbai West,Mumbai,Manufacturing,120000
+P003,Nashik North,Nashik,Treatment,90000
+P004,Aurangabad East,Aurangabad,Treatment,110000
+P005,Solapur South,Solapur,Manufacturing,95000
+P006,Nagpur Industrial,Nagpur,Industrial,130000
+P007,Kolhapur West,Kolhapur,Treatment,85000
+P008,Amravati Central,Amravati,Industrial,105000
