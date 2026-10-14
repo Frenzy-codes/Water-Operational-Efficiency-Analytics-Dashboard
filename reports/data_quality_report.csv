@@ -1,0 +1,86 @@
+dataset,check,column,records_affected,status,detail,timestamp
+plants_clean,Completeness,plant_id,0,PASSED,,2026-10-15 00:31:35
+plants_clean,Completeness,plant_name,0,PASSED,,2026-10-15 00:31:35
+plants_clean,Completeness,location,0,PASSED,,2026-10-15 00:31:35
+plants_clean,Completeness,plant_type,0,PASSED,,2026-10-15 00:31:35
+plants_clean,Completeness,capacity_liters,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Completeness,date,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Completeness,plant_id,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Completeness,water_consumption_liters,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Completeness,recycled_water_liters,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Completeness,recycling_percentage,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Completeness,net_water_liters,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Completeness,month,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Completeness,month_name,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Completeness,quarter,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Completeness,year,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Completeness,day_of_week,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Completeness,date,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Completeness,plant_id,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Completeness,ph,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Completeness,turbidity_ntu,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Completeness,tds_ppm,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Completeness,quality_status,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Completeness,month,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Completeness,month_name,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Completeness,quarter,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Completeness,year,0,PASSED,,2026-10-15 00:31:35
+energy_usage_clean,Completeness,date,0,PASSED,,2026-10-15 00:31:35
+energy_usage_clean,Completeness,plant_id,0,PASSED,,2026-10-15 00:31:35
+energy_usage_clean,Completeness,energy_kwh,0,PASSED,,2026-10-15 00:31:35
+energy_usage_clean,Completeness,month,0,PASSED,,2026-10-15 00:31:35
+energy_usage_clean,Completeness,month_name,0,PASSED,,2026-10-15 00:31:35
+energy_usage_clean,Completeness,quarter,0,PASSED,,2026-10-15 00:31:35
+energy_usage_clean,Completeness,year,0,PASSED,,2026-10-15 00:31:35
+production_clean,Completeness,date,0,PASSED,,2026-10-15 00:31:35
+production_clean,Completeness,plant_id,0,PASSED,,2026-10-15 00:31:35
+production_clean,Completeness,production_units,0,PASSED,,2026-10-15 00:31:35
+production_clean,Completeness,is_downtime,0,PASSED,,2026-10-15 00:31:35
+production_clean,Completeness,month,0,PASSED,,2026-10-15 00:31:35
+production_clean,Completeness,month_name,0,PASSED,,2026-10-15 00:31:35
+production_clean,Completeness,quarter,0,PASSED,,2026-10-15 00:31:35
+production_clean,Completeness,year,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Completeness,date,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Completeness,plant_id,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Completeness,water_cost_inr,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Completeness,energy_cost_inr,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Completeness,treatment_cost_inr,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Completeness,total_cost_inr,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Completeness,cost_per_unit,64,WARNING,64 null values in 'cost_per_unit',2026-10-15 00:31:35
+costs_clean,Completeness,cost_per_kl,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Completeness,month,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Completeness,month_name,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Completeness,quarter,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Completeness,year,0,PASSED,,2026-10-15 00:31:35
+plants_clean,Uniqueness,['plant_id'],0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Uniqueness,"['date', 'plant_id']",0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Uniqueness,"['date', 'plant_id']",0,PASSED,,2026-10-15 00:31:35
+energy_usage_clean,Uniqueness,"['date', 'plant_id']",0,PASSED,,2026-10-15 00:31:35
+production_clean,Uniqueness,"['date', 'plant_id']",0,PASSED,,2026-10-15 00:31:35
+costs_clean,Uniqueness,"['date', 'plant_id']",0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Range check,water_consumption_liters,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Range check,recycled_water_liters,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Range check,recycling_percentage,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Range check,net_water_liters,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Range check,ph,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Range check,turbidity_ntu,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Range check,tds_ppm,0,PASSED,,2026-10-15 00:31:35
+energy_usage_clean,Range check,energy_kwh,0,PASSED,,2026-10-15 00:31:35
+production_clean,Range check,production_units,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Range check,water_cost_inr,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Range check,energy_cost_inr,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Range check,treatment_cost_inr,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Range check,total_cost_inr,0,PASSED,,2026-10-15 00:31:35
+plants_clean,Referential integrity,plant_id,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Referential integrity,plant_id,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Referential integrity,plant_id,0,PASSED,,2026-10-15 00:31:35
+energy_usage_clean,Referential integrity,plant_id,0,PASSED,,2026-10-15 00:31:35
+production_clean,Referential integrity,plant_id,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Referential integrity,plant_id,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Consistency,recycling_percentage,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Consistency,net_water_liters,0,PASSED,,2026-10-15 00:31:35
+water_usage_clean,Consistency,recycled > consumption,0,PASSED,,2026-10-15 00:31:35
+costs_clean,Consistency,total_cost_inr,0,PASSED,,2026-10-15 00:31:35
+water_quality_clean,Quality distribution,Normal,2069,PASSED,2069 rows (70.9%),2026-10-15 00:31:35
+water_quality_clean,Quality distribution,Critical,442,WARNING,442 rows (15.1%),2026-10-15 00:31:35
+water_quality_clean,Quality distribution,Warning,409,WARNING,409 rows (14.0%),2026-10-15 00:31:35
